@@ -1,12 +1,18 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { Post, User, Comment } = require('../models');
+const authCheck = require('../utils/auth');
 
-// This route handles GET requests to the homepage.
-router.get('/', (req, res) => {
+// This route fetches all of the user's posts and renders them to the dashboard.
+router.get('/', authCheck, (req, res) => {
 
-    // Find all posts.
+    // Retrieves all of the user's posts.
     Post.findAll({
 
+        where: {
+
+            user_id: req.session.user_id
+
+        },
         attributes: [
 
             'id',
@@ -44,27 +50,27 @@ router.get('/', (req, res) => {
 
     })
 
-    // Send the post data back to the client.
+    // After retrieving the data, renders the dashboard.
     .then(dbPostData => {
 
-        // Transforms the retrieved data into a plain object.
+        // Transforms the posts into plain objects.
         const posts = dbPostData.map(post => post.get({
 
             plain: true
 
         }));
-
-        // Render the homepage template.
-        res.render('homepage', {
+        
+        // Renders the dashboard.
+        res.render('dashboard', {
 
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
 
         });
 
     })
 
-    // If there's an error, return it.
+    // If there is an error, logs it and sends a 500 status response.
     .catch(err => {
 
         console.log(err);
@@ -74,10 +80,10 @@ router.get('/', (req, res) => {
 
 });
 
-// This route retrieves a single post.
-router.get('/post/:id', (req, res) => {
+// This route fetches a single post and let's the user edit it by rendering the edit-post page.
+router.get('/edit/:id', authCheck, (req, res) => {
 
-    // Find a single post.
+    // Retrieves a single post.
     Post.findOne({
 
         where: {
@@ -122,40 +128,40 @@ router.get('/post/:id', (req, res) => {
 
     })
 
-    // Send the post data back to the client.
+    // After retrieving the data, renders the edit-post page.
     .then(dbPostData => {
 
-        // If no post is found, return an error.
+        // If there is no post with the specified ID, returns a 404 status response with an error message.
         if (!dbPostData) {
 
             res.status(404).json({
 
-                message: 'Unable to find a post with this id'
+                message: 'Unable to find a post with this ID'
 
             });
-
+            
             return;
 
         }
 
-        // Transforms the retrieved data into a plain object.
+        // Transforms the post into a plain object.
         const post = dbPostData.get({
 
             plain: true
 
         });
 
-        // Render the single-post template.
-        res.render('single-post', {
+        // Renders the edit-post page with the post data.
+        res.render('edit-post', {
 
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
 
         });
 
     })
 
-    // If there's an error, return it.
+    // If there is an error, logs it and sends a 500 status response.
     .catch(err => {
 
         console.log(err);
@@ -163,43 +169,17 @@ router.get('/post/:id', (req, res) => {
 
     });
 
-});
+})
 
-// This route handles the login.
-router.get('/login', (req, res) => {
+// This route lets the user create a new post by rendering the add-post page.
+router.get('/new', (req, res) => {
 
-    if (req.session.loggedIn) {
+    // Renders the add-post page if the user is logged in.
+    res.render('add-post', {
 
-        res.redirect('/');
-        return;
+        loggedIn: true
 
-    }
-
-    res.render('login');
-
-});
-
-// This route handles the signup.
-router.get('/signup', (req, res) => {
-
-    // If the user is already logged in, redirect to the homepage.
-    if (req.session.loggedIn) {
-
-        res.redirect('/');
-        return;
-
-    }
-
-    // Otherwise, render the signup page.
-    res.render('signup');
-
-});
-
-// This route catches all invalid routes.
-router.get('*', (req, res) => {
-
-    // Render the 404 page.
-    res.status(404).send("Invalid route");
+    })
 
 })
 
