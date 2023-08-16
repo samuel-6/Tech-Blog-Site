@@ -1,0 +1,40 @@
+<!-- Partial template for the post info. -->
+
+<article class="post">
+
+    <!-- Main container for the post. -->
+    <div class="whole-post">
+
+        <div class="info-section">
+
+            <!-- Post title and link to post. -->
+            <div class="post-name">
+
+                <a href="/post/{{id}}" class="links">{{title}}</a>
+
+            </div>
+
+            <!-- Author and date of post. -->
+            <div class="created-by">
+
+                <p id="comment-subtitle">
+
+                    Created by <b>{{user.username}} </b> on <b>{{formatDate created_at}}</b>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Post content. -->
+        <div class="content-section">
+
+            <!-- Dislpays the main content of the post. -->
+            <p>{{content}}</p>
+
+        </div>
+
+    </div>
+    
+</article>
