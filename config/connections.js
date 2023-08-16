@@ -1,9 +1,7 @@
 // Purpose: Establishes connection to database.
 
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 require('dotenv').config();
-
-let sequelize;
 
 // If the app is deployed on Heroku, use the JawsDB database.
 if (process.env.JAWSDB_URL) {
