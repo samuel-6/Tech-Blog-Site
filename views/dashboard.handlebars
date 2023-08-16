@@ -1,68 +1,42 @@
-{{#extend 'layouts/main'}}
+<!-- Template for the dashboard page. -->
+<section class="new-post-section">
 
-{{!-- Define the main content section --}}
-{{#section 'content'}}
+    <!-- Button to create a new post. -->
+    <button type="submit" class="btn" id="create-new-post">Create new post</button>
 
-  <div class="container">
+</section>
 
-    <div class="row">
+{{#if posts.length}}
 
-      <div class="col-md-8">
+  <section>
 
-        <h2>Dashboard</h2>
-        <h3>Your Blog Posts:</h3>
+      <!-- Heading for the dashboard page. -->
+      <h2>Dashboard</h2>
 
-        {{#if userPosts}}
+      <!-- List of posts. -->
+      <ul class="post-list">
 
-          <ul class="list-group">
+          <!-- Loop through each post. -->
+          {{#each posts as |post|}}
 
-            {{#each userPosts}}
+            <!-- Display each post. -->
+            <li>
 
-              <li class="list-group-item">
+                <!-- Displays the post information using the postInfo partial. -->
+                {{> postInfo post}}
 
-                <h4><a href="/edit-post/{{id}}">{{title}}</a></h4>
-                <p>Date Created: {{dateCreated}}</p>
+                <!-- Link to edit the post. -->
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Modify this post</a>
 
-              </li>
+            </li>
 
-            {{/each}}
+          {{/each}}
 
-          </ul>
+      </ul>
 
-        {{else}}
+  </section>
 
-          <p>No blog posts available yet.</p>
+{{/if}}
 
-        {{/if}}
-
-        <a href="/add-post">Add a New Blog Post</a>
-
-      </div>
-
-      <div class="col-md-4">
-
-        <div class="card">
-
-          <div class="card-body">
-
-            <h5 class="card-title">Navigation</h5>
-
-            <ul class="list-group">
-
-              <li class="list-group-item"><a href="/">Homepage</a></li>
-              <li class="list-group-item"><a href="/dashboard">Dashboard</a></li>
-              <li class="list-group-item"><a href="/logout">Log Out</a></li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-  
-{{/section}}
+<!-- Script for creating posts. -->
+<script src="../public/js/createPost.js"></script>
