@@ -1,17 +1,13 @@
-function formatDate(unixTimestamp) {
+const moment = require('moment');
 
-    const newDate = new Date(unixTimestamp);
+function formatDate(date) {
 
-    const month = newDate.getMonth() + 1;
-    const day = newDate.getDate();
-    const year = newDate.getFullYear();
-
-    const hours = newDate.getHours();
-    const minutes = newDate.getMinutes();
-    const seconds = newDate.getSeconds();
-
-    return `${month}/${day}/${year} ${hours}:${minutes}:${seconds}`;
+    return moment(date).format('MMMM Do YYYY, h:mm:ss a');
 
 }
 
-module.exports = formatDate;
+module.exports = {
+
+    formatDate
+    
+}
