@@ -1,4 +1,4 @@
-// Defines the logout function.
+// This script handles the logout functionality.
 async function logout() {
 
     // Sends a fetch request to the logout route.
