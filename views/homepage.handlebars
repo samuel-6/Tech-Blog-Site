@@ -1,5 +1,4 @@
-{{!-- TODO: Include the main layout --}}
-{{!-- layouts/main --}}
+{{#extend 'layouts/main'}}
 
 {{!-- TODO: Define the main content section --}}
 {{#section 'content'}}
@@ -10,7 +9,7 @@
 
       <div class="col-md-8">
 
-        <h2>Welcome to the Blog Site</h2>
+        <h2>Welcome to Tech Blog Site</h2>
         
         {{!-- Display existing blog posts --}}
         {{#if blogPosts}}
