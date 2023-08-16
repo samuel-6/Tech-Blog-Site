@@ -1,42 +1,51 @@
-{{#extend 'layouts/main'}}
+<!-- Template for the sign up page. -->
 
-{{!-- Define the main content section --}}
-{{#section 'content'}}
+<section class="sign-in-page">
 
-  <div class="container">
+    <!-- Heading for the sign up form. -->
+    <div class="form-heading">
 
-    <div class="row">
-
-      <div class="col-md-6 offset-md-3">
-
-        <h2>Sign Up</h2>
-
-        <form action="/signup" method="POST">
-
-          <div class="form-group">
-
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-
-          </div>
-
-          <div class="form-group">
-
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-
-          </div>
-
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-
-        </form>
-
-        <p>Already have an account? <a href="/login">Log In</a></p>
-
-      </div>
+        <h1>Sign up!</h1>
 
     </div>
 
-  </div>
+    <!-- User form section. -->
+    <div class="form-section">
 
-{{/section}}
+        <!-- Sign up form. -->
+        <form class="signup-form">
+
+            <!-- Username field. -->
+            <div>
+
+                <label for="username-signup">Enter your username!</label>
+                <input type="text" class="entry-field" id="username-signup" />
+
+            </div>
+
+            <!-- Password field. -->
+            <div>
+
+                <label for="password-signup">Please select a password</label>
+                <input type="password" class="entry-field" id="password-signup" />
+
+            </div>
+
+            <!-- Submit button. -->
+            <div>
+
+                <button type="submit" class="login-signup-btn">Sign up!</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Link to the login page. -->
+    <a href="/login" class="login-link">Log in instead!</a>
+
+</section>
+
+<!-- Script for the sign up page. -->
+<script src="../public/js/signup.js"></script>
