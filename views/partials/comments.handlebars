@@ -1,16 +1,29 @@
+<!-- Partial template for the comments. -->
+
 <div class="comments">
 
-  <h4>Comments:</h4>
+    <!-- Iterates through each comment. -->
+    {{#each this}}
 
-  {{#each comments}}
+      <!-- Individual comment section. -->
+      <section class="comment">
 
-    <div class="comment">
+          <!-- Comment author and date. -->
+          <div class="meta">
 
-      <p>{{creator}} on {{dateCreated}}</p>
-      <p>{{content}}</p>
+              {{user.username}} on {{created_at}}
 
-    </div>
+          </div>
 
-  {{/each}}
-  
+          <!-- Comment text. -->
+          <div class="text">
+
+              {{comment_text}}
+
+          </div>
+
+      </section>
+
+    {{/each}}
+    
 </div>
