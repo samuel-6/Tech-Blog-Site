@@ -24,16 +24,18 @@
 
                 </h1>
 
+                <!-- Navigation links. -->
                 <nav>
 
+                    <!-- If the user is logged in, shows the dashboard and logout buttons, else it shows the login button. -->
                     {{#if loggedIn}}
 
-                    <a href="/dashboard">Dashboard</a>
-                    <button id="logout" class="btn-no-style logout">Logout</button>
+                        <a href="/dashboard">Dashboard</a>
+                        <button id="logout" class="btn-no-style logout">Logout</button>
 
-                    {{else}}
+                        {{else}}
 
-                    <a href="/login">Login</a>
+                            <a href="/login">Login</a>
 
                     {{/if}}
 
@@ -53,15 +55,17 @@
 
             <main>
 
+                <!-- Dynamic content goes here. -->
                 {{{ body }}}
 
             </main>
 
         </div>
 
+        <!-- If the user is logged in, links the logout script. -->
         {{#if loggedIn}}
 
-        <script src="../../public/js/logout.js"></script>
+            <script src="../../public/js/logout.js"></script>
 
         {{/if}}
 
