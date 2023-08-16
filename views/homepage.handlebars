@@ -3,44 +3,78 @@
 
 {{!-- TODO: Define the main content section --}}
 {{#section 'content'}}
+
   <div class="container">
+
     <div class="row">
+
       <div class="col-md-8">
+
         <h2>Welcome to the Blog Site</h2>
         
         {{!-- Display existing blog posts --}}
         {{#if blogPosts}}
+
           <h3>Existing Blog Posts:</h3>
+
           <ul class="list-group">
+
             {{#each blogPosts}}
+
               <li class="list-group-item">
+
                 <h4><a href="/post/{{id}}">{{title}}</a></h4>
                 <p>Date Created: {{dateCreated}}</p>
+
               </li>
+
             {{/each}}
+
           </ul>
+
         {{else}}
+
           <p>No blog posts available yet.</p>
+
         {{/if}}
+
       </div>
+
       <div class="col-md-4">
+
         <div class="card">
+
           <div class="card-body">
+
             <h5 class="card-title">Navigation</h5>
+
             <ul class="list-group">
+
               <li class="list-group-item"><a href="/">Homepage</a></li>
+
               {{!-- Check if the user is logged in --}}
               {{#if userLoggedIn}}
+
                 <li class="list-group-item"><a href="/dashboard">Dashboard</a></li>
                 <li class="list-group-item"><a href="/logout">Log Out</a></li>
+
               {{else}}
+
                 <li class="list-group-item"><a href="/signup">Sign Up</a></li>
                 <li class="list-group-item"><a href="/login">Log In</a></li>
+
               {{/if}}
+
             </ul>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+  
 {{/section}}
