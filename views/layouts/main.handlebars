@@ -1,7 +1,8 @@
-<!-- TODO: ADD CSS AND JS-->
+<!-- Main layout for all pages -->
 
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
 
         <meta charset="UTF-8">
@@ -13,50 +14,57 @@
 
     <body>
 
-        <header>
+        <div class="wrapper">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <header>
 
-                <a class="navbar-brand" href="/">Tech Blog Site</a>
+                <h1>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="/">Home</a>
 
-                    <span class="navbar-toggler-icon"></span>
+                </h1>
 
-                </button>
+                <nav>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
+                    {{#if loggedIn}}
 
-                    <ul class="navbar-nav ml-auto">
+                    <a href="/dashboard">Dashboard</a>
+                    <button id="logout" class="btn-no-style logout">Logout</button>
 
-                        <li class="nav-item">
+                    {{else}}
 
-                            <a class="nav-link" href="/">Homepage</a>
+                    <a href="/login">Login</a>
 
-                        </li>
-                        {{!-- Include additional navigation links --}}
+                    {{/if}}
 
-                    </ul>
+                </nav>
+
+            </header>
+
+            <div class="site-row">
+
+                <div class="site-name">
+
+                    <h1>Tech Blog Site</h1>
 
                 </div>
 
-            </nav>
-
-        </header>
-    
-        {{!-- Include the main content of the view --}}
-        {{{body}}}
-    
-        <footer class="footer mt-auto py-3">
-
-            <div class="container">
-
-                <span class="text-muted">© {{currentYear}} Tech Blog Site</span>
-
             </div>
 
-        </footer>
-        
+            <main>
+
+                {{{ body }}}
+
+            </main>
+
+        </div>
+
+        {{#if loggedIn}}
+
+        <script src="../../public/js/logout.js"></script>
+
+        {{/if}}
+
     </body>
 
 </html>
