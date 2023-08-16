@@ -1,15 +1,15 @@
-<!-- Homepage template -->
+<!-- Template for the homepage. -->
 
-<!-- Starts an unordered list with the class "post-list" -->
+<!-- Starts an unordered list with the class "post-list". -->
 <ul class="post-list">
 
-    <!-- Loops through each post in the "posts" collection -->
+    <!-- Loops through each post in the "posts" collection. -->
     {{#each posts as |post|}}
 
-    <!-- Starts a list item for each post -->
+    <!-- Starts a list item for each post. -->
     <li>
 
-        <!-- Includes the "post-info" partial template and passes the current post as the "post" variable -->
+        <!-- Includes the "post-info" partial template and passes the current post as the "post" variable. -->
         {{> postInfo post }}
 
     </li>
