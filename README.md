@@ -55,6 +55,11 @@ To log out, simply click on the logout option in the navigation.
 
 If you are idle on the site for more than a set time, you will still be able to view posts and comments, but you will be prompted to log in again before you can add, update, or delete posts.
 
+Here's a screenshot of the deployed site:
+![Screenshot_Of_The_Tech_Blog_Site_Deployed](./assets/images/screenshot.png)
+
+You can also visit it [here](https://still-wildwood-35623-de9ee9820738.herokuapp.com).
+
 ## Credits
 
 This project was developed by [Samuel Munguia]. Feel free to connect with me on [GitHub](https://github.com/samuel-6) for any questions or collaborations.
