@@ -152,7 +152,7 @@ router.get('/edit/:id', authCheck, (req, res) => {
         });
 
         // Renders the edit-post page with the post data.
-        res.render('edit-post', {
+        res.render('editPost', {
 
             post,
             loggedIn: true
@@ -175,7 +175,7 @@ router.get('/edit/:id', authCheck, (req, res) => {
 router.get('/new', (req, res) => {
 
     // Renders the add-post page if the user is logged in.
-    res.render('add-post', {
+    res.render('addPost', {
 
         loggedIn: true
 

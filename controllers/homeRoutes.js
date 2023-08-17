@@ -146,7 +146,7 @@ router.get('/post/:id', (req, res) => {
         });
 
         // Render the single-post template.
-        res.render('single-post', {
+        res.render('singlePost', {
 
             post,
             loggedIn: req.session.loggedIn
