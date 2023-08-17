@@ -66,18 +66,18 @@ header {
 
 .header-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .site-name {
   font-size: 1.5em;
   color: #e74c3c;
-  padding-left: 10px;
+  padding-right: 20px;
 }
 
 .login-link {
   color: #ecf0f1;
-  padding-right: 10px;
 }
 
 .main-content {

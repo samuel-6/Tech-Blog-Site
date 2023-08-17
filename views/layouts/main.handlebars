@@ -18,28 +18,32 @@
 
             <header>
 
-                <h1>
+                <div class="header-content">
 
-                    <a href="/">Home</a>
+                    <h1 class="site-name">
 
-                </h1>
+                        <a href="/">Home</a>
 
-                <!-- Navigation links. -->
-                <nav>
+                    </h1>
 
-                    <!-- If the user is logged in, shows the dashboard and logout buttons, else it shows the login button. -->
-                    {{#if loggedIn}}
+                    <!-- Navigation links. -->
+                    <nav>
 
-                        <a href="/dashboard">Dashboard</a>
-                        <button id="logout" class="btn-no-style logout">Logout</button>
+                        <!-- If the user is logged in, shows the dashboard and logout buttons, else it shows the login button. -->
+                        {{#if loggedIn}}
 
-                        {{else}}
+                            <a href="/dashboard">Dashboard</a>
+                            <button id="logout" class="btn-no-style logout">Logout</button>
 
-                            <a href="/login">Login</a>
+                            {{else}}
 
-                    {{/if}}
+                                <a class="login-link" href="/login">Login</a>
 
-                </nav>
+                        {{/if}}
+
+                    </nav>
+
+                </div>
 
             </header>
 
@@ -65,7 +69,7 @@
         <!-- If the user is logged in, links the logout script. -->
         {{#if loggedIn}}
 
-            <script src="../../public/js/logout.js"></script>
+            <script src="js/logout.js"></script>
 
         {{/if}}
 
