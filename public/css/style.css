@@ -48,6 +48,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 70px;
 }
 
 header {
@@ -57,15 +58,26 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensure the header stays on top */
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
 .site-name {
   font-size: 1.5em;
-  color: white;
+  color: #e74c3c;
+  padding-left: 10px;
+}
+
+.login-link {
+  color: #ecf0f1;
+  padding-right: 10px;
 }
 
 .main-content {
