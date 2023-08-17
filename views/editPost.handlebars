@@ -1,0 +1,63 @@
+<!-- Template for editing a post. -->
+
+<!-- Link to go back to the dashboard. -->
+<a href="/dashboard" class="go-back"> &larr; Back to the dashboard</a>
+
+<!-- Article section for editing a post. -->
+<article class="new-page">
+
+    <!-- Section for the edit form. -->
+    <section class="edit-form-page">
+
+        <!-- Heading for the edit form. -->
+        <div class="form-heading">
+
+          <h2>Modify post</h2>
+
+        </div>
+
+        <!-- Form section for editing a post. -->
+        <div class="form-section">
+
+            <!-- Edit post form. -->
+            <form class="edit-post-form">
+
+                <!-- Section for the post title. -->
+                <div class="post-title-section">
+
+                    <!-- Label and input for the post title. -->
+                    <label for="post-title">Title</label>
+                    <input type="text" name="post-title" id="post-title" value="{{post.title}}"/>
+
+                </div>
+
+                <!-- Section for the post content. -->
+                <div class="post-content">
+
+                    <!-- Label and textarea for the post content. -->
+                    <label for="post-content">Content</label>
+                    <textarea class="entry-field" id="post-content" name="post-content">{{post.content}}</textarea>
+
+                </div>
+
+                <!-- Submit button for updating the post. -->
+                <button type="submit">Update post</button>
+
+                <!-- Button for deleting the post. -->
+                <button type="button" class="delete-post-btn">Delete post</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</article>
+
+<!-- If the user is logged in, load the edit and delete post scripts. -->
+{{#if loggedIn}}
+
+  <script src="../public/js/editPost.js"></script>
+  <script src="../public/js/deletePost.js"></script>
+
+{{/if}}
