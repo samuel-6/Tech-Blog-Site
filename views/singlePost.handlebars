@@ -1,0 +1,42 @@
+<!-- Template for displaying a single post. -->
+
+<!-- Link to go back to the dashboard. -->
+<a href="/dashboard" class="go-back"> &larr; Go back to the dashboard</a>
+<br>
+<br>
+
+<!-- Displays the post information using the postInfo partial. -->
+{{> postInfo post}}
+
+<!-- If the user is logged in, display the comment form. -->
+{{#if loggedIn}}
+
+  <form class="comment-form">
+
+      <!-- Text area for the comment body. -->
+      <div>
+
+          <textarea name="comment-body"></textarea>
+
+      </div>
+
+      <!-- Submit button. -->
+      <div>
+
+          <button type="submit">add comment</button>
+
+      </div>
+
+  </form>
+
+{{/if}}
+
+<!-- Displays the comments using the comments partial. -->
+{{> comments post.comments}}
+
+<!-- If the user is logged in, load the comment script. -->
+{{#if loggedIn}}
+
+  <script src="../public/js/comment.js"></script>
+
+{{/if}}
